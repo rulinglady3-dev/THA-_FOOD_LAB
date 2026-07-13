@@ -1,0 +1,507 @@
+/* ===== RESET ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+
+body{
+
+    background:
+    radial-gradient(circle at top,#173b63,#071421 70%);
+
+    color:white;
+
+}
+
+/* Hareketli arka plan */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,rgba(0,255,255,.08),transparent 30%),
+
+    radial-gradient(circle at 80% 40%,rgba(0,180,255,.08),transparent 25%),
+
+    radial-gradient(circle at 50% 90%,rgba(0,120,255,.08),transparent 30%);
+
+    z-index:-2;
+
+}
+
+/* Canvas */
+
+#particleCanvas{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+/* ===== HEADER ===== */
+
+header{
+
+    text-align:center;
+
+    padding:45px 20px;
+
+}
+
+header h1{
+
+    font-size:48px;
+
+    color:#7fe7ff;
+
+    text-shadow:
+
+    0 0 10px #00d9ff,
+
+    0 0 25px #00d9ff;
+
+}
+
+header p{
+
+    margin-top:12px;
+
+    color:#c9f5ff;
+
+    font-size:18px;
+
+}
+
+/* ===== FOOD CARDS ===== */
+
+.food-list{
+
+    display:flex;
+
+    gap:25px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    padding:30px;
+
+}
+
+.food-card{
+
+    width:210px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.food-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+    0 0 30px rgba(0,200,255,.45);
+
+}
+
+.food-card img{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+
+}
+
+.food-card h3{
+
+    text-align:center;
+
+    padding:18px;
+
+} 
+/* ===== LABORATORY ===== */
+
+.laboratory{
+
+    width:min(1200px,95%);
+
+    margin:50px auto;
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+.lab-title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.lab-title h2{
+
+    font-size:34px;
+
+    color:#86ecff;
+
+}
+
+.lab-title p{
+
+    color:#d8f8ff;
+
+    margin-top:8px;
+
+}
+
+/* ===== INGREDIENTS ===== */
+
+.ingredients{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:45px;
+
+}
+
+.ingredient{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:grab;
+
+    transition:.25s;
+
+    user-select:none;
+
+    font-size:34px;
+
+}
+
+.ingredient:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 0 18px rgba(0,210,255,.45);
+
+}
+
+.ingredient span{
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:white;
+
+}
+
+/* ===== PLATE ===== */
+
+.plate-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.plate{
+
+    width:380px;
+
+    height:380px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:12px solid #d9e7ef;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.plate img{
+
+    width:88%;
+
+    display:none;
+
+}
+
+#plateText{
+
+    color:#777;
+
+    font-size:20px;
+
+    text-align:center;
+
+    width:70%;
+
+} 
+/* ===== MESSAGE ===== */
+
+.message{
+
+    margin:35px auto 0;
+
+    width:fit-content;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    background:rgba(0,180,255,.15);
+
+    border:1px solid rgba(0,220,255,.4);
+
+    color:#7feeff;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.4s;
+
+}
+
+.message.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ===== PLATE ACTIVE ===== */
+
+.plate.active{
+
+    box-shadow:
+
+    0 0 25px #00d9ff,
+
+    0 0 60px rgba(0,217,255,.6),
+
+    0 0 90px rgba(0,217,255,.4);
+
+}
+
+/* ===== RESULT IMAGE ===== */
+
+#resultImage{
+
+    width:90%;
+
+    height:90%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    display:none;
+
+    animation:fadeFood .8s ease;
+
+}
+
+@keyframes fadeFood{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.6);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+header h1{
+
+font-size:34px;
+
+}
+
+.food-card{
+
+width:170px;
+
+}
+
+.food-card img{
+
+height:120px;
+
+}
+
+.ingredient{
+
+width:75px;
+
+height:75px;
+
+font-size:28px;
+
+}
+
+.plate{
+
+width:300px;
+
+height:300px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.food-list{
+
+gap:15px;
+
+}
+
+.food-card{
+
+width:150px;
+
+}
+
+.food-card img{
+
+height:105px;
+
+}
+
+.ingredient{
+
+width:68px;
+
+height:68px;
+
+font-size:25px;
+
+}
+
+.ingredient span{
+
+font-size:10px;
+
+}
+
+.plate{
+
+width:250px;
+
+height:250px;
+
+}
+
+header p{
+
+font-size:15px;
+
+}
+
+}
