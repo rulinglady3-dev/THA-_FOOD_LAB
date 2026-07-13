@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thai Food Laboratory</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Arka Plan -->
+    <div class="background"></div>
+
+    <!-- Hareketli Parçacıklar -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Üst Başlık -->
+    <header>
+
+        <h1>🧪 Thai Food Laboratory</h1>
+
+        <p>Create famous Thai dishes by combining the correct ingredients.</p>
+
+    </header>
+
+    <!-- Yemek Kartları -->
+    <section class="food-list">
+
+        <div class="food-card" data-food="pathongko">
+            <img src="images/food1.jpg" alt="Pa Thong Ko">
+            <h3>Pa Thong Ko</h3>
+        </div>
+
+        <div class="food-card" data-food="crab">
+            <img src="images/food2.jpg" alt="Crab Curry">
+            <h3>Crab Curry</h3>
+        </div>
+
+        <div class="food-card" data-food="egg">
+            <img src="images/food3.jpg" alt="Egg Dish">
+            <h3>Egg Dish</h3>
+        </div>
+
+        <div class="food-card" data-food="krapow">
+            <img src="images/food4.jpg" alt="Pad Krapow">
+            <h3>Pad Krapow</h3>
+        </div>
+
+        <div class="food-card" data-food="thaitea">
+            <img src="images/thai-tea.jpg" alt="Thai Tea">
+            <h3>Thai Tea</h3>
+        </div>
+
+    </section> 
+      <!-- Laboratory -->
+
+    <section class="laboratory">
+
+        <div class="lab-title">
+            <h2>🧪 Laboratory</h2>
+            <p>Drag the correct ingredients onto the plate.</p>
+        </div>
+
+        <!-- Ingredient Area -->
+
+        <div class="ingredients" id="ingredients">
+
+            <div class="ingredient" draggable="true" data-item="flour">🌾<span>Flour</span></div>
+
+            <div class="ingredient" draggable="true" data-item="water">💧<span>Water</span></div>
+
+            <div class="ingredient" draggable="true" data-item="egg">🥚<span>Egg</span></div>
+
+            <div class="ingredient" draggable="true" data-item="rice">🍚<span>Rice</span></div>
+
+            <div class="ingredient" draggable="true" data-item="crab">🦀<span>Crab</span></div>
+
+            <div class="ingredient" draggable="true" data-item="meat">🥩<span>Meat</span></div>
+
+            <div class="ingredient" draggable="true" data-item="garlic">🧄<span>Garlic</span></div>
+
+            <div class="ingredient" draggable="true" data-item="onion">🧅<span>Onion</span></div>
+
+            <div class="ingredient" draggable="true" data-item="pepper">🌶️<span>Pepper</span></div>
+
+            <div class="ingredient" draggable="true" data-item="basil">🌿<span>Basil</span></div>
+
+            <div class="ingredient" draggable="true" data-item="milk">🥛<span>Milk</span></div>
+
+            <div class="ingredient" draggable="true" data-item="tea">🫖<span>Tea</span></div>
+
+            <div class="ingredient" draggable="true" data-item="ice">🧊<span>Ice</span></div>
+
+            <div class="ingredient" draggable="true" data-item="sugar">🍬<span>Sugar</span></div>
+
+        </div>
+
+        <!-- Plate -->
+
+        <div class="plate-area">
+
+            <div id="plate" class="plate">
+
+                <img id="resultImage" src="" alt="">
+
+                <p id="plateText">
+                    Drop ingredients here
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Message -->
+
+        <div id="message" class="message">
+            Experiment Complete!
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
