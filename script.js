@@ -27,6 +27,9 @@ const ingredientGrid = document.getElementById("ingredientGrid");
 const synthesizeBtn = document.getElementById("synthesizeBtn");
 const labFoodName = document.getElementById("labFoodName");
 
+const mixer = document.getElementById("mixer");
+const mixStatus = document.getElementById("mixStatus");
+
 const resultImage = document.getElementById("resultImage");
 const resultFoodName = document.getElementById("resultFoodName");
 const foodInfo = document.getElementById("foodInfo");
@@ -419,11 +422,11 @@ function showIngredientLab(){
 
     });
 
-    setTimeout(()=>{
+   setTimeout(()=>{
 
-        synthesizeBtn.style.display="inline-block";
+    mixIngredients();
 
-    },list.length*300+400);
+},list.length*300+500);
 
 }
 /* ===========================
@@ -562,3 +565,40 @@ backBtn.addEventListener("click",()=>{
     showScreen(databaseScreen);
 
 });
+/* ===========================
+   MIXER
+=========================== */
+
+function mixIngredients(){
+
+    mixStatus.textContent = "MIXING...";
+
+    mixer.classList.add("active");
+
+    const cards = document.querySelectorAll(".ingredient-card");
+
+    cards.forEach((card,index)=>{
+
+        setTimeout(()=>{
+
+            card.style.transition = "0.8s";
+
+            card.style.transform = "scale(0)";
+
+            card.style.opacity = "0";
+
+        },index*180);
+
+    });
+
+    setTimeout(()=>{
+
+        mixStatus.textContent = "SYNTHESIS COMPLETE";
+
+        mixer.classList.remove("active");
+
+        synthesizeBtn.style.display = "inline-block";
+
+    },2500);
+
+}
