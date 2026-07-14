@@ -561,3 +561,92 @@ button:hover{
     }
 
 }
+/* ===========================
+   HUD
+=========================== */
+
+.hud{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    padding:0 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#081317;
+
+    border-bottom:1px solid #18414b;
+
+    z-index:1000;
+
+}
+
+.hud-title{
+
+    color:#67ffe1;
+
+    font-size:22px;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+
+}
+
+.hud-status{
+
+    color:#67ffe1;
+
+    font-weight:bold;
+
+}
+
+.footer{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#67ffe1;
+
+    border-top:1px solid #18414b;
+
+    background:#081317;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+}
+
+.screen{
+
+    padding-top:100px;
+
+    padding-bottom:60px;
+
+}
