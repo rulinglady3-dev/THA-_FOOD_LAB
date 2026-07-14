@@ -650,3 +650,80 @@ button:hover{
     padding-bottom:60px;
 
 }
+/* ===========================
+   MIXER
+=========================== */
+
+.mixer{
+
+    margin:50px auto;
+
+    width:180px;
+
+    height:180px;
+
+    border:4px solid #67ffe1;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.mixer-core{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:#67ffe1;
+
+    opacity:.15;
+
+    transition:.4s;
+
+}
+
+.mixer.active .mixer-core{
+
+    animation:spinCore 1s linear infinite;
+
+}
+
+@keyframes spinCore{
+
+    from{
+
+        transform:rotate(0deg) scale(1);
+
+    }
+
+    to{
+
+        transform:rotate(360deg) scale(1.15);
+
+    }
+
+}
+
+.mix-status{
+
+    margin-top:20px;
+
+    color:#67ffe1;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
