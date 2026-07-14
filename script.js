@@ -146,6 +146,31 @@ function showScreen(screen){
     }
 
 }
+/* ===========================
+   BOOT
+=========================== */
+
+let bootValue = 0;
+
+const bootAnimation = setInterval(() => {
+
+    bootValue++;
+
+    bootBar.style.width = bootValue + "%";
+
+    if (bootValue >= 100) {
+
+        clearInterval(bootAnimation);
+
+        setTimeout(() => {
+
+            showScreen(homeScreen);
+
+        }, 500);
+
+    }
+
+}, 25);
 
 
 /* ===========================
