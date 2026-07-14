@@ -686,3 +686,26 @@ function mixIngredients(){
 
 
 }
+function showResult(){
+
+    showScreen(resultScreen);
+
+
+    resultFoodName.textContent = currentFood;
+
+
+    const food = foods[currentFood];
+
+
+    if(food){
+
+        resultImage.src = food.image;
+
+    }
+
+
+    foodInfo.textContent =
+    "Thai Food Lab synthesis complete. Your recipe has been analyzed successfully.";
+
+
+}
