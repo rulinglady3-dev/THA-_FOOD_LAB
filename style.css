@@ -225,3 +225,111 @@ button:hover{
     }
 
 }
+.food-selection{
+
+    margin-top:50px;
+
+}
+
+
+.food-selection h2{
+
+    color:#65ffda;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
+
+    text-shadow:
+    0 0 15px #65ffda;
+
+}
+
+
+
+.foods{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.food-card{
+
+    background:
+
+    rgba(0,255,220,0.08);
+
+    border:2px solid #65ffda;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+
+    0 0 15px rgba(101,255,218,0.4);
+
+}
+
+
+
+.food-card img{
+
+    width:100%;
+
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+
+
+.food-card h3{
+
+    margin-top:15px;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+
+
+.food-card:hover{
+
+    transform:
+
+    translateY(-10px)
+    scale(1.05);
+
+
+    box-shadow:
+
+    0 0 30px #65ffda;
+
+}
+
+
+
+.food-card:hover img{
+
+    filter:
+
+    brightness(1.2);
+
+}
