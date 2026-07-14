@@ -53,3 +53,116 @@ startButton.addEventListener("click",()=>{
 
 
 });
+const foodCards = document.querySelectorAll(".food-card");
+
+
+const ingredients = {
+
+    "Pad Thai":[
+        "🍜 Pirinç eriştesi",
+        "🥜 Fıstık",
+        "🥚 Yumurta",
+        "🌱 Fasulye filizi",
+        "🌶️ Acı biber"
+    ],
+
+
+    "Tom Yum Soup":[
+        "🍤 Karides",
+        "🌿 Limon otu",
+        "🌶️ Acı biber",
+        "🍋 Lime",
+        "🍄 Mantar"
+    ],
+
+
+    "Green Curry":[
+        "🥥 Hindistan cevizi sütü",
+        "🌿 Fesleğen",
+        "🌶️ Yeşil biber",
+        "🍗 Tavuk",
+        "🍛 Köri"
+    ],
+
+
+    "Mango Sticky Rice":[
+        "🥭 Mango",
+        "🍚 Yapışkan pirinç",
+        "🥥 Hindistan cevizi sütü",
+        "🍯 Şeker"
+    ],
+
+
+    "Thai Tea":[
+        "🫖 Siyah çay",
+        "🥛 Süt",
+        "🍯 Şeker",
+        "🧊 Buz",
+        "🌿 Baharat aroması"
+    ],
+
+
+    "Pa Thong Ko":[
+        "🌾 Un",
+        "🥚 Yumurta",
+        "🍯 Şeker",
+        "🛢️ Yağ"
+    ],
+
+
+    "Curry Crab":[
+        "🦀 Yengeç",
+        "🥥 Hindistan cevizi sütü",
+        "🌶️ Baharat",
+        "🥚 Yumurta"
+    ],
+
+
+    "Kai Ping":[
+        "🍗 Tavuk",
+        "🧄 Sarımsak",
+        "🌿 Otlar",
+        "🧂 Baharat"
+    ],
+
+
+    "Pad Krapow":[
+        "🌿 Fesleğen",
+        "🌶️ Acı biber",
+        "🥩 Et",
+        "🧄 Sarımsak",
+        "🥚 Yumurta"
+    ]
+
+};
+
+
+
+foodCards.forEach(card=>{
+
+
+    card.addEventListener("click",()=>{
+
+
+        const foodName = card.dataset.food;
+
+
+        result.innerHTML = `
+
+        🧪 ANALYSIS COMPLETE
+        
+        <br><br>
+
+        <h2>${foodName}</h2>
+
+        <br>
+
+        ${ingredients[foodName].join("<br>")}
+
+        `;
+
+
+    });
+
+
+});
