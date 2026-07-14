@@ -1,3 +1,8 @@
+console.log("JavaScript çalışıyor");
+
+const startButton = document.getElementById("start");
+
+console.log(startButton);
 const startButton = document.getElementById("start");
 const result = document.getElementById("result");
 const food = document.querySelector(".food");
