@@ -36,6 +36,8 @@ const foodInfo = document.getElementById("foodInfo");
 
 const backBtn = document.getElementById("backBtn");
 
+let selectedIngredients = [];
+
 
 /* ===========================
    FOOD DATA
@@ -392,13 +394,17 @@ function showIngredientLab(){
 
     synthesizeBtn.style.display = "none";
 
+    selectedIngredients = [];
+
     const list = ingredients[currentFood];
+
 
     list.forEach((item,index)=>{
 
         const card = document.createElement("div");
 
         card.className = "ingredient-card";
+
 
         card.innerHTML = `
 
@@ -412,7 +418,52 @@ function showIngredientLab(){
 
         `;
 
+
+        // malzeme seçme
+
+        card.addEventListener("click",()=>{
+
+
+            card.classList.toggle("selected");
+
+
+            if(card.classList.contains("selected")){
+
+
+                selectedIngredients.push(item);
+
+
+            }else{
+
+
+                selectedIngredients =
+                selectedIngredients.filter(
+                    x=>x[1] !== item[1]
+                );
+
+
+            }
+
+
+            // hepsi seçilirse buton aç
+
+            if(selectedIngredients.length === list.length){
+
+                synthesizeBtn.style.display="block";
+
+            }else{
+
+                synthesizeBtn.style.display="none";
+
+            }
+
+
+        });
+
+
         ingredientGrid.appendChild(card);
+
+
 
         setTimeout(()=>{
 
@@ -420,7 +471,12 @@ function showIngredientLab(){
 
         },index*300);
 
+
     });
+
+
+
+}
 setTimeout(()=>{
 
     alert("mix çalıştı");
@@ -567,6 +623,12 @@ backBtn.addEventListener("click",()=>{
     showScreen(databaseScreen);
 
 });
+
+synthesizeBtn.addEventListener("click",()=>{
+
+    mixIngredients();
+
+});
 /* ===========================
    MIXER
 =========================== */
@@ -577,7 +639,11 @@ function mixIngredients(){
 
     mixer.classList.add("active");
 
+    synthesizeBtn.style.display = "none";
+
+
     const cards = document.querySelectorAll(".ingredient-card");
+
 
     cards.forEach((card,index)=>{
 
@@ -585,22 +651,38 @@ function mixIngredients(){
 
             card.style.transition = "0.8s";
 
-            card.style.transform = "scale(0)";
+            card.style.transform =
+            "scale(0) rotate(180deg)";
 
             card.style.opacity = "0";
 
+
         },index*180);
+
 
     });
 
+
+
     setTimeout(()=>{
 
-        mixStatus.textContent = "SYNTHESIS COMPLETE";
+
+        mixStatus.textContent =
+        "SYNTHESIS COMPLETE";
+
 
         mixer.classList.remove("active");
 
-        synthesizeBtn.style.display = "inline-block";
+
+        setTimeout(()=>{
+
+            showResult();
+
+        },1000);
+
+
 
     },2500);
+
 
 }
