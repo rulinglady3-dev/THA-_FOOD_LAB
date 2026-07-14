@@ -727,3 +727,195 @@ button:hover{
     letter-spacing:2px;
 
 }
+/* =========================
+   INGREDIENT LAB
+========================= */
+
+#labScreen{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:
+    radial-gradient(circle at top,#17304a,#050b14);
+    color:white;
+    padding:30px;
+}
+
+
+#labFoodName{
+
+    font-size:42px;
+    margin-bottom:30px;
+    text-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan;
+
+}
+
+
+/* Malzeme alanı */
+
+#ingredientGrid{
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(130px,1fr));
+
+    gap:25px;
+
+    width:90%;
+    max-width:900px;
+
+}
+
+
+/* Kart */
+
+.ingredient-card{
+
+    height:170px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    animation:
+    appear .6s ease;
+
+}
+
+
+.ingredient-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 25px cyan;
+
+}
+
+
+/* Emoji tüp */
+
+.tube{
+
+    font-size:60px;
+
+    animation:
+    float 3s infinite ease-in-out;
+
+}
+
+
+/* seçilmiş malzeme */
+
+.ingredient-card.selected{
+
+    border-color:#00ffff;
+
+    box-shadow:
+    0 0 30px cyan;
+
+    transform:
+    scale(1.08);
+
+}
+
+
+
+/* Buton */
+
+#synthesizeBtn{
+
+    margin-top:40px;
+
+    padding:15px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        45deg,
+        #00ffff,
+        #008cff
+    );
+
+    color:#001018;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 25px cyan;
+
+}
+
+
+/* Animasyonlar */
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+
+@keyframes appear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.5)
+        rotate(-10deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        rotate(0);
+
+    }
+
+}
