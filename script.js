@@ -25,6 +25,7 @@ const scanStatus = document.getElementById("scanStatus");
 
 const ingredientGrid = document.getElementById("ingredientGrid");
 const synthesizeBtn = document.getElementById("synthesizeBtn");
+const labFoodName = document.getElementById("labFoodName");
 
 const resultImage = document.getElementById("resultImage");
 const resultFoodName = document.getElementById("resultFoodName");
