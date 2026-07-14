@@ -1,467 +1,563 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
 }
-
 
 body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#071116;
+    color:#fff;
+    overflow:hidden;
+}
 
-    width:100%;
-    height:100vh;
+/* ===========================
+   SCREEN
+=========================== */
 
-    background:
-    radial-gradient(circle at center,
-    #17333a,
-    #050909);
-
-    display:flex;
+.screen{
+    position:fixed;
+    inset:0;
+    display:none;
     justify-content:center;
     align-items:center;
-
-    color:white;
-
-    overflow:hidden;
-
+    flex-direction:column;
+    padding:40px;
 }
 
-
-
-.lab{
-
-    text-align:center;
-
-    width:90%;
-    max-width:700px;
-
+.screen.active{
+    display:flex;
 }
 
-
+/* ===========================
+   HEADER
+=========================== */
 
 h1{
-
-    font-size:42px;
-
+    color:#67ffe1;
     letter-spacing:3px;
-
-    color:#65ffda;
-
-    text-shadow:
-    0 0 10px #65ffda,
-    0 0 30px #00ffe1;
-
-    margin-bottom:15px;
-
+    margin-bottom:20px;
 }
 
-
-
-.subtitle{
-
-    color:#b8ffff;
-
-    font-size:18px;
-
-    margin-bottom:40px;
-
+h2{
+    margin:15px 0;
 }
-
-
-
-.scanner{
-
-    width:260px;
-
-    height:260px;
-
-    margin:auto;
-
-    border:3px solid #65ffda;
-
-    border-radius:20px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-    rgba(0,255,220,0.05);
-
-    box-shadow:
-
-    0 0 20px #00ffe1,
-
-    inset 0 0 30px #00ffe1;
-
-}
-
-
-
-.food{
-
-    font-size:100px;
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:
-    translate(-50%,-50%);
-
-    animation:pulse 2s infinite;
-
-}
-
-
-
-.scan-line{
-
-    position:absolute;
-
-    width:100%;
-
-    height:5px;
-
-    background:#65ffda;
-
-    box-shadow:
-
-    0 0 20px #65ffda;
-
-    top:0;
-
-    animation:scan 3s infinite linear;
-
-}
-
-
 
 button{
-
-    margin-top:40px;
-
-    padding:15px 35px;
-
-    font-size:18px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#65ffda;
-
-    color:#001414;
-
     cursor:pointer;
-
+    border:none;
+    border-radius:10px;
+    padding:15px 35px;
+    font-size:17px;
     font-weight:bold;
-
-    box-shadow:
-
-    0 0 20px #65ffda;
-
+    background:#67ffe1;
+    color:#051014;
+    transition:.3s;
 }
-
-
 
 button:hover{
-
     transform:scale(1.05);
-
 }
 
+/* ===========================
+   BOOT
+=========================== */
 
-
-#result{
-
-    margin-top:30px;
-
-    font-size:22px;
-
-    color:#fff;
-
+.boot-box{
+    width:600px;
+    max-width:90%;
+    text-align:center;
 }
 
-
-
-@keyframes scan{
-
-    from{
-
-        top:0;
-
-    }
-
-    to{
-
-        top:100%;
-
-    }
-
+.boot-progress{
+    width:100%;
+    height:18px;
+    background:#12242a;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:25px;
 }
 
-
-
-@keyframes pulse{
-
-    0%,100%{
-
-        transform:
-        translate(-50%,-50%)
-        scale(1);
-
-    }
-
-
-    50%{
-
-        transform:
-        translate(-50%,-50%)
-        scale(1.15);
-
-    }
-
-}
-.food-selection{
-
-    margin-top:50px;
-
+#bootBar{
+    width:0%;
+    height:100%;
+    background:#67ffe1;
 }
 
+/* ===========================
+   HOME
+=========================== */
 
-.food-selection h2{
+.home-box{
+    text-align:center;
+}
 
-    color:#65ffda;
-
-    letter-spacing:3px;
-
+.home-box p{
     margin-bottom:30px;
-
-    text-shadow:
-    0 0 15px #65ffda;
-
+    color:#cfd8dc;
 }
+/* ===========================
+   FOOD DATABASE
+=========================== */
 
+.food-grid{
 
-
-.foods{
+    width:100%;
+    max-width:1300px;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(3,1fr);
 
     gap:25px;
 
-}
+    margin-top:30px;
 
+}
 
 
 .food-card{
 
-    background:
+    background:#0d1d23;
 
-    rgba(0,255,220,0.08);
+    border:2px solid #1d4d57;
 
-    border:2px solid #65ffda;
+    border-radius:18px;
 
-    border-radius:20px;
-
-    padding:15px;
+    overflow:hidden;
 
     cursor:pointer;
 
-    transition:0.4s;
-
-    box-shadow:
-
-    0 0 15px rgba(101,255,218,0.4);
+    transition:.3s;
 
 }
 
+
+.food-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#67ffe1;
+
+}
 
 
 .food-card img{
 
     width:100%;
 
-    height:140px;
+    height:220px;
 
     object-fit:cover;
 
-    border-radius:15px;
+    display:block;
 
 }
-
 
 
 .food-card h3{
 
-    margin-top:15px;
+    text-align:center;
+
+    padding:18px;
 
     color:white;
 
-    font-size:18px;
+    font-size:20px;
+
+    letter-spacing:1px;
 
 }
 
 
+/* Tablet */
 
-.food-card:hover{
+@media(max-width:1000px){
 
-    transform:
+    .food-grid{
 
-    translateY(-10px)
-    scale(1.05);
+        grid-template-columns:repeat(2,1fr);
 
-
-    box-shadow:
-
-    0 0 30px #65ffda;
+    }
 
 }
 
 
+/* Telefon */
 
-.food-card:hover img{
+@media(max-width:650px){
 
-    filter:
+    body{
 
-    brightness(1.2);
+        overflow:auto;
+
+    }
+
+    .screen{
+
+        position:relative;
+
+        min-height:100vh;
+
+    }
+
+    .food-grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
-/* =========================
+/* ===========================
    SCANNER SCREEN
-========================= */
+=========================== */
 
-.scanner-screen{
+.scanner-container{
 
-    position:fixed;
-
-    inset:0;
-
-    background:#02090b;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
-
-}
-
-
-.scanner-box{
-
-    width:520px;
+    width:700px;
 
     max-width:90%;
 
-    background:#07171c;
+    background:#0b1a20;
 
-    border:2px solid #65ffda;
+    border:2px solid #67ffe1;
 
-    border-radius:25px;
+    border-radius:20px;
 
     padding:30px;
 
     text-align:center;
 
-    box-shadow:
-    0 0 30px rgba(101,255,218,.4);
-
-    position:relative;
-
-    overflow:hidden;
-
 }
 
 
-.scanner-box img{
+#scanImage{
 
     width:100%;
 
-    height:300px;
+    height:350px;
 
     object-fit:cover;
 
     border-radius:15px;
 
-}
-
-
-.laser{
-
-    position:absolute;
-
-    left:0;
-
-    width:100%;
-
-    height:4px;
-
-    background:#65ffda;
-
-    box-shadow:
-    0 0 20px #65ffda;
-
-    top:50px;
-
-    opacity:0;
+    margin:20px 0;
 
 }
 
 
-.progress{
+.scan-bar{
 
     width:100%;
 
-    height:14px;
+    height:20px;
 
-    background:#14343b;
+    background:#13262c;
 
     border-radius:20px;
 
-    margin-top:25px;
-
     overflow:hidden;
+
+    margin-top:25px;
 
 }
 
 
-#progressBar{
+#scanProgress{
 
     width:0%;
 
     height:100%;
 
-    background:#65ffda;
-
-    transition:width .15s linear;
+    background:#67ffe1;
 
 }
 
 
-#progressText{
+#scanPercent{
 
     margin-top:15px;
 
     font-size:22px;
 
-    color:#65ffda;
+    font-weight:bold;
+
+    color:#67ffe1;
 
 }
 
 
-#scanTitle{
+#scanStatus{
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    color:#d9ffff;
+
+}
+/* ===========================
+   INGREDIENT LABORATORY
+=========================== */
+
+.lab-container{
+
+    width:1100px;
+
+    max-width:95%;
+
+    background:#0b1a20;
+
+    border:2px solid #67ffe1;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+.ingredient-grid{
+
+    margin:40px 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+
+    gap:25px;
+
+}
+
+
+.ingredient-card{
+
+    background:#10242b;
+
+    border:2px solid #1b4650;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.4s;
+
+}
+
+
+.ingredient-card.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+.tube{
+
+    width:70px;
+
+    height:120px;
+
+    margin:auto;
+
+    border:3px solid #67ffe1;
+
+    border-radius:0 0 35px 35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+    background:#0a1418;
+
+}
+
+
+.ingredient-name{
+
+    margin-top:15px;
+
+    font-size:16px;
+
+    color:#ffffff;
+
+    line-height:1.4;
+
+}
+
+
+#synthesizeBtn{
 
     margin-top:20px;
 
-    color:white;
+    display:none;
+
+}
+/* ===========================
+   RESULT SCREEN
+=========================== */
+
+.result-container{
+
+    width:900px;
+
+    max-width:95%;
+
+    background:#0b1a20;
+
+    border:2px solid #67ffe1;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+#resultImage{
+
+    width:100%;
+
+    max-width:500px;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+
+}
+
+
+#resultFoodName{
+
+    color:#67ffe1;
+
+    margin-bottom:15px;
+
+}
+
+
+.food-info{
+
+    margin:35px auto;
+
+    width:100%;
+
+    max-width:600px;
+
+    text-align:left;
+
+}
+
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 18px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    background:#10242b;
+
+    border:1px solid #1f505b;
+
+}
+
+
+.info-title{
+
+    color:#67ffe1;
+
+    font-weight:bold;
+
+}
+
+
+.info-value{
+
+    color:#ffffff;
+
+}
+
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#071116;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#67ffe1;
+
+    border-radius:10px;
+
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:700px){
+
+    .result-container,
+    .scanner-container,
+    .lab-container{
+
+        padding:20px;
+
+    }
+
+    #scanImage,
+    #resultImage{
+
+        height:230px;
+
+    }
+
+    .ingredient-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
 
 }
