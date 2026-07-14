@@ -113,34 +113,39 @@ function showScreen(screen){
 
     screen.classList.add("active");
 
-}
+    const hudStatus = document.getElementById("hudStatus");
 
+    if(screen===homeScreen){
 
-/* ===========================
-   BOOT
-=========================== */
-
-let bootValue = 0;
-
-const bootAnimation = setInterval(()=>{
-
-    bootValue++;
-
-    bootBar.style.width = bootValue + "%";
-
-    if(bootValue>=100){
-
-        clearInterval(bootAnimation);
-
-        setTimeout(()=>{
-
-            showScreen(homeScreen);
-
-        },500);
+        hudStatus.textContent="SYSTEM ONLINE";
 
     }
 
-},25);
+    else if(screen===databaseScreen){
+
+        hudStatus.textContent="FOOD DATABASE";
+
+    }
+
+    else if(screen===scannerScreen){
+
+        hudStatus.textContent="SCANNING";
+
+    }
+
+    else if(screen===labScreen){
+
+        hudStatus.textContent="INGREDIENT LAB";
+
+    }
+
+    else if(screen===resultScreen){
+
+        hudStatus.textContent="ANALYSIS COMPLETE";
+
+    }
+
+}
 
 
 /* ===========================
