@@ -210,6 +210,8 @@ function startScan(){
     const scanInterval = setInterval(()=>{
 
         percent++;
+       
+        console.log(percent);
 
         scanProgress.style.width = percent + "%";
 
