@@ -421,12 +421,14 @@ function showIngredientLab(){
         },index*300);
 
     });
+setTimeout(()=>{
 
-   setTimeout(()=>{
+    alert("mix çalıştı");
 
     mixIngredients();
 
 },list.length*300+500);
+   
 
 }
 /* ===========================
